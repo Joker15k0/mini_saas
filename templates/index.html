@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini SaaS | Produtos</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        main {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 11px 16px;
+            border: 0;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+        }
+
+        th { background: #f8fafc; }
+
+        .excluir { background: #dc2626; }
+
+        .mensagem {
+            padding: 12px;
+            background: #dcfce7;
+            border-radius: 6px;
+        }
+
+        .tabela { overflow-x: auto; }
+    </style>
+</head>
+
+<body>
+<main>
+    <header>
+        <h1>Mini SaaS</h1>
+        <p>Sistema de gerenciamento de produtos</p>
+    </header>
+
+    {% for mensagem in get_flashed_messages() %}
+        <p class="mensagem">{{ mensagem }}</p>
+    {% endfor %}
+
+    <section>
+        <h2>Cadastrar produto</h2>
+
+        <form action="/cadastrar" method="POST">
+            <label>Nome</label>
+            <input name="nome" maxlength="100" required>
+
+            <label>Descrição</label>
+            <input name="descricao" maxlength="255">
+
+            <label>Preço (R$)</label>
+            <input name="preco" type="number"
+                   min="0" step="0.01" required>
+
+            <button type="submit">Cadastrar produto</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Produtos cadastrados</h2>
+
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto["id"] }}</td>
+                        <td>{{ produto["nome"] }}</td>
+                        <td>{{ produto["descricao"] or "-" }}</td>
+                        <td>R$ {{ "%.2f"|format(produto["preco"]) }}</td>
+                        <td>
+                            <form
+                                action="/excluir/{{ produto['id'] }}"
+                                method="POST"
+                                onsubmit="return confirm('Excluir produto?')">
+                                <button class="excluir" type="submit">
+                                    Excluir
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Nenhum produto cadastrado.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>

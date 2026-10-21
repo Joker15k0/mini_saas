@@ -1,0 +1,20 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<servico>
+    <nome>mini_saas</nome>
+    <descricao>Sistema SaaS de cadastro de produtos</descricao>
+
+    <aplicacao>
+        <tecnologia>Python Flask</tecnologia>
+        <host>0.0.0.0</host>
+        <porta>5000</porta>
+    </aplicacao>
+
+    <banco_de_dados>
+        <tipo>MySQL</tipo>
+        <nome>mini_saas</nome>
+        <porta>3306</porta>
+    </banco_de_dados>
+
+    <ambiente>desenvolvimento</ambiente>
+</servico>
