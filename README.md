@@ -1,42 +1,9 @@
-\# Mini SaaS
+## SISTEMA FUNCIOANDO ##
 
+1./ Entrar o SITE com http://127.0.0.1:5000. 
 
+2./ Esta bem funcionando
 
-Sistema web de cadastro e gerenciamento de produtos.
+3./ Voce pode cadastrar o produto com facildade
 
-
-
-\## Tecnologias
-
-\- Python
-
-\- Flask
-
-\- SQLite
-
-\- HTML e CSS
-
-\- Git e GitHub
-
-
-
-\## Funcionalidades
-
-\- Cadastrar produtos
-
-\- Listar produtos
-
-\- Excluir produtos
-
-
-
-\## Executar
-
-1\. Ativar o ambiente virtual.
-
-2\. Instalar as dependências.
-
-3\. Executar python app.py.
-
-4\. Acessar http://127.0.0.1:5000.
-
+4./ Voce consegue apagar dos produtos e Cadastrar de novo
