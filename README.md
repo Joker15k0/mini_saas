@@ -1,4 +1,4 @@
-## SISTEMA FUNCIOANDO ##
+## SISTEMA FUNCIONANDO ##
 
 1./ Entrar o SITE com http://127.0.0.1:5000. 
 
