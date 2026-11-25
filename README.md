@@ -1,6 +1,6 @@
 ## SISTEMA FUNCIONANDO ##
 
-1./ Entrar o SITE com http://127.0.0.1:5000. 
+1./ Entrar o SITE com http://192.168.0.201:5000/. 
 
 2./ Esta bem funcionando
 
